@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Evaluasi - UKM Intermedia</title>
+    <meta name="description" content="Form Kritik & Saran Anonim UKM Intermedia">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e293b',
+                        darkBg: '#0f172a',
+                        cardBg: 'rgba(30, 41, 59, 0.7)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glassmorphism {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Background Blobs -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Sticky Nav -->
+    <nav class="fixed w-full z-40 glassmorphism transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <img src="ASSETS/foto/LOGO INTERMEDIA.png" alt="Intermedia Logo" class="w-10 h-10 rounded-full border border-slate-600">
+                    <span class="font-bold text-xl tracking-tight text-white">UKM Intermedia</span>
+                </div>
+                <button onclick="openModal('modal-divisi')" class="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        Evaluasi Divisi
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <main class="relative z-10 pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6 tracking-tight">
+                Suarakan Aspirasimu
+            </h1>
+            <p class="text-lg text-slate-400 mb-2">
+                Halo! Sampaikan kritik & saranmu untuk kemajuan Intermedia secara <span class="text-blue-400 font-semibold">anonim</span> dan aman.
+            </p>
+            <p class="text-sm text-slate-500">
+                Klik foto pengurus untuk memberi masukan individu, atau gunakan tombol di atas untuk masukan umum divisi.
+            </p>
+        </div>
+
+        <!-- Gallery Container -->
+        <div id="gallery-container" class="space-y-16">
+            <!-- Divisi groups will be injected here via JS -->
+            <div class="flex justify-center items-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-800 bg-darkBg mt-12 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 UKM Intermedia. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Pengurus -->
+    <div id="modal-pengurus" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal('modal-pengurus')"></div>
+        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-4 rounded-2xl shadow-2xl p-6 transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal('modal-pengurus')" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-700">
+                <img id="m-p-foto" src="" alt="Avatar" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500">
+                <div>
+                    <h3 id="m-p-nama" class="text-xl font-bold text-white">Nama Pengurus</h3>
+                    <p id="m-p-jabatan" class="text-sm text-blue-400">Jabatan • Divisi</p>
+                </div>
+            </div>
+
+            <form id="form-pengurus" onsubmit="submitForm(event, 'Pengurus')">
+                <input type="hidden" id="m-p-id" name="id_pengurus">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Kritik</label>
+                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Tuliskan kritikmu..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Saran</label>
+                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Tuliskan saranmu..."></textarea>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('modal-pengurus')" class="px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition">Batal</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                        <span>Kirim Aspirasi</span>
+                        <svg class="w-4 h-4 hidden loader-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Divisi -->
+    <div id="modal-divisi" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal('modal-divisi')"></div>
+        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-4 rounded-2xl shadow-2xl p-6 transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal('modal-divisi')" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Evaluasi Divisi Umum
+                </h3>
+                <p class="text-sm text-slate-400 mt-1">Sampaikan aspirasi untuk kemajuan program kerja divisi.</p>
+            </div>
+
+            <form id="form-divisi" onsubmit="submitForm(event, 'Divisi')">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Pilih Divisi</label>
+                        <select name="divisi_target" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none">
+                            <option value="" disabled selected>-- Pilih Divisi --</option>
+                            <option value="PH">Pengurus Harian (PH)</option>
+                            <option value="Kaderisasi">Kaderisasi</option>
+                            <option value="Humas">Hubungan Masyarakat</option>
+                            <option value="Ristek">Riset dan Teknologi</option>
+                            <option value="Content Creator">Content Creator</option>
+                            <option value="Keilmuan">Keilmuan</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Multimedia">Multimedia</option>
+                            <option value="Sistem Robotika">Sistem Robotika</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Kritik</label>
+                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Tuliskan kritikmu..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Saran</label>
+                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Tuliskan saranmu..."></textarea>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('modal-divisi')" class="px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition">Batal</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                        <span>Kirim Aspirasi</span>
+                        <svg class="w-4 h-4 hidden loader-icon animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium">
+        <span id="toast-icon"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <script>
+        // Fetch and Render Gallery
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('gallery-container');
+            try {
+                const res = await fetch('api/data_pengurus.php');
+                const data = await res.json();
+                
+                container.innerHTML = '';
+                
+                for (const [divisi, members] of Object.entries(data)) {
+                    // Create Divisi Section
+                    const section = document.createElement('div');
+                    section.className = 'animate-slide-up';
+                    
+                    const header = document.createElement('div');
+                    header.className = 'flex items-center justify-center gap-4 mb-8';
+                    header.innerHTML = `
+                        <div class="h-px bg-gradient-to-r from-transparent to-slate-700 flex-1"></div>
+                        <h2 class="text-2xl font-bold text-white tracking-wide uppercase px-4">${divisi}</h2>
+                        <div class="h-px bg-gradient-to-l from-transparent to-slate-700 flex-1"></div>
+                    `;
+                    
+                    const grid = document.createElement('div');
+                    grid.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6';
+                    
+                    members.forEach(m => {
+                        const card = document.createElement('div');
+                        card.className = 'glassmorphism rounded-2xl p-5 text-center cursor-pointer group hover:bg-slate-800/80 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-blue-500/50';
+                        card.onclick = () => openModalPengurus(m);
+                        
+                        card.innerHTML = `
+                            <div class="relative w-24 h-24 mx-auto mb-4">
+                                <div class="absolute inset-0 bg-blue-500 rounded-full blur opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                                <img src="${m.foto}" alt="${m.nama}" class="relative w-full h-full rounded-full object-cover border-2 border-slate-600 group-hover:border-blue-400 transition-colors duration-300 z-10 bg-slate-800">
+                            </div>
+                            <h4 class="font-semibold text-sm text-slate-100 line-clamp-2 leading-tight">${m.nama}</h4>
+                            <p class="text-xs text-blue-400 mt-1.5 font-medium">${m.jabatan}</p>
+                        `;
+                        grid.appendChild(card);
+                    });
+                    
+                    section.appendChild(header);
+                    section.appendChild(grid);
+                    container.appendChild(section);
+                }
+            } catch (error) {
+                container.innerHTML = '<div class="text-center text-red-400 p-8 glassmorphism rounded-xl">Gagal memuat data pengurus. Pastikan koneksi database menyala.</div>';
+            }
+        });
+
+        // Modal Functions
+        function openModalPengurus(pengurus) {
+            document.getElementById('m-p-id').value = pengurus.id;
+            document.getElementById('m-p-nama').innerText = pengurus.nama;
+            document.getElementById('m-p-jabatan').innerText = `${pengurus.jabatan} • ${pengurus.divisi}`;
+            document.getElementById('m-p-foto').src = pengurus.foto;
+            
+            // Clear form
+            document.getElementById('form-pengurus').reset();
+            openModal('modal-pengurus');
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = modal.querySelector('div.relative');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = modal.querySelector('div.relative');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Form Submission
+        async function submitForm(e, jenisTarget) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const loader = btn.querySelector('.loader-icon');
+            const span = btn.querySelector('span');
+            
+            btn.disabled = true;
+            loader.classList.remove('hidden');
+            loader.classList.add('animate-spin');
+            
+            const formData = new FormData(form);
+            formData.append('jenis_target', jenisTarget);
+
+            try {
+                const res = await fetch('api/simpan.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                
+                if (data.status === 'sukses') {
+                    showToast(data.pesan, 'success');
+                    closeModal(form.closest('[id^="modal-"]').id);
+                    form.reset();
+                } else {
+                    showToast(data.pesan, 'error');
+                }
+            } catch (error) {
+                showToast('Terjadi kesalahan jaringan.', 'error');
+            } finally {
+                btn.disabled = false;
+                loader.classList.add('hidden');
+                loader.classList.remove('animate-spin');
+            }
+        }
+
+        // Toast Notification
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            const text = document.getElementById('toast-message');
+            
+            toast.className = `fixed bottom-5 right-5 z-[60] transform transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium ${
+                type === 'success' ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'
+            }`;
+            
+            icon.innerHTML = type === 'success' 
+                ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>'
+                : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+            
+            text.innerText = message;
+            
+            // Show
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            // Hide after 3s
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
