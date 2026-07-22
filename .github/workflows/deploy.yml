@@ -18,7 +18,7 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
-          version: latest
+          version: 1.98.8
 
       - name: Setup SSH Key
         run: |
