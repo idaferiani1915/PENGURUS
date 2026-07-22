@@ -40,7 +40,7 @@ $result = $conn->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="ASSETS/favicon.ico">
+    <link rel="icon" href="ASSETS/favicon.ico">
 </head>
 <body class="bg-slate-100 min-h-screen">
     <nav class="bg-slate-900 text-white shadow-md">
