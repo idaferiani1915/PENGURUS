@@ -86,12 +86,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <img src="ASSETS/foto/LOGO INTERMEDIA.png" alt="Intermedia Logo" class="w-10 h-10 rounded-full border border-slate-600">
-                    <span class="font-bold text-xl tracking-tight text-white">UKM Intermedia</span>
+                    <!-- Logo dengan background kontras putih -->
+                    <div class="bg-white p-1 rounded-xl shadow-md border border-slate-600 flex items-center justify-center shrink-0">
+                        <img src="ASSETS/foto/LOGO INTERMEDIA.png" alt="Intermedia Logo" class="w-8 h-8 object-contain">
+                    </div>
+                    <span class="font-bold text-base sm:text-xl tracking-tight text-white truncate">UKM Intermedia</span>
                 </div>
-                <button onclick="openModal('modal-divisi')" class="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5">
-                    <span class="flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <button onclick="openModal('modal-divisi')" class="group relative px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs sm:text-sm font-medium shadow-lg hover:shadow-blue-500/35 transition-all duration-300 hover:-translate-y-0.5 shrink-0">
+                    <span class="flex items-center gap-1.5 sm:gap-2">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         Evaluasi Divisi
                     </span>
                 </button>
@@ -100,21 +103,21 @@
     </nav>
 
     <!-- Header Section -->
-    <main class="relative z-10 pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6 tracking-tight">
+    <main class="relative z-10 pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 animate-slide-up">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 sm:mb-6 tracking-tight">
                 Suarakan Aspirasimu
             </h1>
-            <p class="text-lg text-slate-400 mb-2">
+            <p class="text-base sm:text-lg text-slate-400 mb-2">
                 Halo! Sampaikan kritik & saranmu untuk kemajuan Intermedia secara <span class="text-blue-400 font-semibold">anonim</span> dan aman.
             </p>
-            <p class="text-sm text-slate-500">
+            <p class="text-xs sm:text-sm text-slate-500">
                 Klik foto pengurus untuk memberi masukan individu, atau gunakan tombol di atas untuk masukan umum divisi.
             </p>
         </div>
 
         <!-- Gallery Container -->
-        <div id="gallery-container" class="space-y-16">
+        <div id="gallery-container" class="space-y-12 sm:space-y-16">
             <!-- Divisi groups will be injected here via JS -->
             <div class="flex justify-center items-center py-20">
                 <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -123,23 +126,26 @@
     </main>
 
     <!-- Footer -->
-    <footer class="relative z-10 border-t border-slate-800 bg-darkBg mt-12 py-8 text-center text-slate-500 text-sm">
+    <footer class="relative z-10 border-t border-slate-800 bg-darkBg mt-12 py-8 text-center text-slate-500 text-xs sm:text-sm">
         <p>&copy; 2026 UKM Intermedia. All rights reserved.</p>
     </footer>
 
     <!-- Modal Pengurus -->
-    <div id="modal-pengurus" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="modal-pengurus" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 p-4">
         <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal('modal-pengurus')"></div>
-        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-4 rounded-2xl shadow-2xl p-6 transform scale-95 transition-transform duration-300">
+        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-auto rounded-2xl shadow-2xl p-5 sm:p-6 transform scale-95 transition-transform duration-300">
             <button onclick="closeModal('modal-pengurus')" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
             <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-700">
-                <img id="m-p-foto" src="" alt="Avatar" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500">
-                <div>
-                    <h3 id="m-p-nama" class="text-xl font-bold text-white">Nama Pengurus</h3>
-                    <p id="m-p-jabatan" class="text-sm text-blue-400">Jabatan • Divisi</p>
+                <!-- Background kontras putih untuk foto logo/profil di modal jika diperlukan, atau kotak pengurus -->
+                <div class="bg-white p-1 rounded-xl border border-slate-600 shrink-0">
+                    <img id="m-p-foto" src="" alt="Avatar" class="w-14 h-14 sm:w-16 sm:h-16 rounded-lg object-cover bg-slate-800">
+                </div>
+                <div class="overflow-hidden">
+                    <h3 id="m-p-nama" class="text-lg sm:text-xl font-bold text-white truncate">Nama Pengurus</h3>
+                    <p id="m-p-jabatan" class="text-xs sm:text-sm text-blue-400 truncate">Jabatan • Divisi</p>
                 </div>
             </div>
 
@@ -148,16 +154,16 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1">Kritik</label>
-                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Tuliskan kritikmu..."></textarea>
+                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-sm" placeholder="Tuliskan kritikmu..."></textarea>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1">Saran</label>
-                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Tuliskan saranmu..."></textarea>
+                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-sm" placeholder="Tuliskan saranmu..."></textarea>
                     </div>
                 </div>
-                <div class="mt-6 flex justify-end gap-3">
-                    <button type="button" onclick="closeModal('modal-pengurus')" class="px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition">Batal</button>
-                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                <div class="mt-6 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                    <button type="button" onclick="closeModal('modal-pengurus')" class="w-full sm:w-auto px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition text-sm">Batal</button>
+                    <button type="submit" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 text-sm">
                         <span>Kirim Aspirasi</span>
                         <svg class="w-4 h-4 hidden loader-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
@@ -167,26 +173,26 @@
     </div>
 
     <!-- Modal Divisi -->
-    <div id="modal-divisi" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="modal-divisi" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 p-4">
         <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal('modal-divisi')"></div>
-        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-4 rounded-2xl shadow-2xl p-6 transform scale-95 transition-transform duration-300">
+        <div class="relative bg-slate-800 border border-slate-700 w-full max-w-lg mx-auto rounded-2xl shadow-2xl p-5 sm:p-6 transform scale-95 transition-transform duration-300">
             <button onclick="closeModal('modal-divisi')" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
             <div class="mb-6">
-                <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-6 h-6 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     Evaluasi Divisi Umum
                 </h3>
-                <p class="text-sm text-slate-400 mt-1">Sampaikan aspirasi untuk kemajuan program kerja divisi.</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">Sampaikan aspirasi untuk kemajuan program kerja divisi.</p>
             </div>
 
             <form id="form-divisi" onsubmit="submitForm(event, 'Divisi')">
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1">Pilih Divisi</label>
-                        <select name="divisi_target" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none">
+                        <select name="divisi_target" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none text-sm">
                             <option value="" disabled selected>-- Pilih Divisi --</option>
                             <option value="PH">Pengurus Harian (PH)</option>
                             <option value="Kaderisasi">Kaderisasi</option>
@@ -201,16 +207,16 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1">Kritik</label>
-                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Tuliskan kritikmu..."></textarea>
+                        <textarea name="isi_kritik" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition text-sm" placeholder="Tuliskan kritikmu..."></textarea>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-1">Saran</label>
-                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Tuliskan saranmu..."></textarea>
+                        <textarea name="isi_saran" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition text-sm" placeholder="Tuliskan saranmu..."></textarea>
                     </div>
                 </div>
-                <div class="mt-6 flex justify-end gap-3">
-                    <button type="button" onclick="closeModal('modal-divisi')" class="px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition">Batal</button>
-                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                <div class="mt-6 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                    <button type="button" onclick="closeModal('modal-divisi')" class="w-full sm:w-auto px-5 py-2.5 rounded-xl font-medium text-slate-300 hover:bg-slate-700 transition text-sm">Batal</button>
+                    <button type="submit" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2 text-sm">
                         <span>Kirim Aspirasi</span>
                         <svg class="w-4 h-4 hidden loader-icon animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
@@ -220,7 +226,7 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium">
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium text-sm">
         <span id="toast-icon"></span>
         <span id="toast-message"></span>
     </div>
@@ -244,25 +250,28 @@
                     header.className = 'flex items-center justify-center gap-4 mb-8';
                     header.innerHTML = `
                         <div class="h-px bg-gradient-to-r from-transparent to-slate-700 flex-1"></div>
-                        <h2 class="text-2xl font-bold text-white tracking-wide uppercase px-4">${divisi}</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide uppercase px-2 sm:px-4 text-center">${divisi}</h2>
                         <div class="h-px bg-gradient-to-l from-transparent to-slate-700 flex-1"></div>
                     `;
                     
                     const grid = document.createElement('div');
-                    grid.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6';
+                    // Mengoptimalkan jumlah kolom agar responsif di HP (2 kolom di HP kecil, naik bertahap ke atas)
+                    grid.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6';
                     
                     members.forEach(m => {
                         const card = document.createElement('div');
-                        card.className = 'glassmorphism rounded-2xl p-5 text-center cursor-pointer group hover:bg-slate-800/80 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-blue-500/50';
+                        // Ubah struktur card: Foto kotak mepet ke atas dengan background kontras tipis, sisa ruang bawah untuk nama & jabatan
+                        card.className = 'glassmorphism rounded-2xl p-3 sm:p-4 text-center cursor-pointer group hover:bg-slate-800/80 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-blue-500/50 flex flex-col justify-between';
                         card.onclick = () => openModalPengurus(m);
                         
                         card.innerHTML = `
-                            <div class="relative w-24 h-24 mx-auto mb-4">
-                                <div class="absolute inset-0 bg-blue-500 rounded-full blur opacity-0 group-hover:opacity-40 transition duration-300"></div>
-                                <img src="${m.foto}" alt="${m.nama}" class="relative w-full h-full rounded-full object-cover border-2 border-slate-600 group-hover:border-blue-400 transition-colors duration-300 z-10 bg-slate-800">
+                            <div>
+                                <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-3 bg-white/10 p-1 border border-slate-600 group-hover:border-blue-400 transition-colors duration-300">
+                                    <img src="${m.foto}" alt="${m.nama}" class="w-full h-full object-cover rounded-lg bg-slate-800">
+                                </div>
+                                <h4 class="font-semibold text-xs sm:text-sm text-slate-100 line-clamp-2 leading-snug px-1">${m.nama}</h4>
                             </div>
-                            <h4 class="font-semibold text-sm text-slate-100 line-clamp-2 leading-tight">${m.nama}</h4>
-                            <p class="text-xs text-blue-400 mt-1.5 font-medium">${m.jabatan}</p>
+                            <p class="text-[11px] sm:text-xs text-blue-400 mt-2 font-medium px-1 pb-1">${m.jabatan}</p>
                         `;
                         grid.appendChild(card);
                     });
@@ -272,7 +281,7 @@
                     container.appendChild(section);
                 }
             } catch (error) {
-                container.innerHTML = '<div class="text-center text-red-400 p-8 glassmorphism rounded-xl">Gagal memuat data pengurus. Pastikan koneksi database menyala.</div>';
+                container.innerHTML = '<div class="text-center text-red-400 p-8 glassmorphism rounded-xl text-sm">Gagal memuat data pengurus. Pastikan koneksi database menyala.</div>';
             }
         });
 
@@ -310,7 +319,6 @@
             const form = e.target;
             const btn = form.querySelector('button[type="submit"]');
             const loader = btn.querySelector('.loader-icon');
-            const span = btn.querySelector('span');
             
             btn.disabled = true;
             loader.classList.remove('hidden');
@@ -348,13 +356,13 @@
             const icon = document.getElementById('toast-icon');
             const text = document.getElementById('toast-message');
             
-            toast.className = `fixed bottom-5 right-5 z-[60] transform transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium ${
+            toast.className = `fixed bottom-5 right-5 z-[60] transform transition-all duration-300 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl font-medium text-sm ${
                 type === 'success' ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'
             }`;
             
             icon.innerHTML = type === 'success' 
-                ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>'
-                : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+                ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>'
+                : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
             
             text.innerText = message;
             
