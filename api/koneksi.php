@@ -1,7 +1,7 @@
 <?php
-$host   = "localhost";
+$host   = "127.0.0.1";
 $user   = "root";         // ganti sesuai server
-$pass   = "";             // ganti sesuai server
+$pass   = "bagusdev123";             // ganti sesuai server
 $dbname = "db_pengurus";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
