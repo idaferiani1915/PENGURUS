@@ -30,7 +30,7 @@ jobs:
       - name: Deploy to Server via SSH
         run: |
           ssh -i ~/.ssh/id_rsa bagusdev@100.79.215.75 << 'EOF'
-            cd /path/to/your/app
+            cd /var/www/PENGURUS
             git pull origin main
             
             # Tambahkan perintah build/restart service di sini jika ada
