@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="ASSETS/favicon.ico">
 </head>
 <body class="bg-slate-900 h-screen flex items-center justify-center">
     <div class="bg-slate-800 p-8 rounded-2xl shadow-xl max-w-sm w-full border border-slate-700">
